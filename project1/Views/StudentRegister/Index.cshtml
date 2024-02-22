@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Student>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">CATEGORY LIST</h2>
+
+        </div>
+
+        <div class="col-6 text-end">
+            <a asp-controller="StudentRegister" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> &nbsp; Create New Category</a>
+
+        </div>
+    </div>
+
+    <br />
+
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+
+    <thead>
+        <tr>
+            <th style="color:white">Id</th>
+            <th style ="color:white">Name</th>
+            <th style="color:white">Description</th>
+            <th style="color:white">Age</th>
+            <th style="color:white">createDateTime</th>
+        </tr>
+
+
+    </thead>
+
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="50%" style="color:white">
+                    @obj.Id</td>
+                <td width="50%" style="color:white">
+                    @obj.Name</td>
+                <td width="50%" style="color:white">
+                    @obj.Description</td>
+                <td width="50%" style="color:white">
+                    @obj.Age</td>
+                <td width="50%" style="color:white">
+                    @obj.createDateTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>
+

@@ -1,0 +1,51 @@
+﻿@model Student
+
+<form  method="post">
+    <div class="border p-3 mt-4">
+
+        <div class="row pb-2">
+
+            <h2 class="text-primary">Input Student Details</h2>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" /> 
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br />
+
+
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+            <br />
+
+            <label asp-for="Age"></label>
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+            <br />
+
+
+            <label asp-for="createDateTime"></label>
+            <input asp-for="createDateTime" class="form-control" />
+            <span asp-validation-for="createDateTime" class="text-danger"></span>
+            <br />
+
+
+            <button type="submit" class="btn btn-primary"  style="width:150px">Create</button>
+            <a asp-controller="StudentRegister" asp-action="Index" class="btn btn-secondary" style="width:150px">Back To List</a>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+  
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+
+
