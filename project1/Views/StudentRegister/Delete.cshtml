@@ -1,0 +1,54 @@
+﻿@model Student
+
+<form method="post" asp-action="DeletePost">
+    <div class="border p-3 mt-4">
+
+        <input asp-for="Id" hidden />
+        <div class="row pb-2">
+
+            <h2 class="text-primary">Delete Student Details</h2>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+
+
+            <input asp-for="Name" disabled class="form-control" />
+
+            <br />
+
+
+            <label asp-for="Description"></label>
+            <input asp-for="Description" disabled class="form-control" />
+
+            <br />
+
+            <label asp-for="Age"></label>
+            <input asp-for="Age" disabled class="form-control" />
+
+            <br />
+
+
+            <label asp-for="createDateTime"></label>
+            <input asp-for="createDateTime" disabled class="form-control" />
+
+            <br />
+
+
+            <button type="submit" class="btn btn-danger"  style="width:150px">Delete</button>
+            <a asp-controller="StudentRegister" asp-action="Index" class="btn btn-secondary" style="width:150px">Back To List</a>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts{
+  
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+
+

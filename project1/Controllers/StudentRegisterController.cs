@@ -36,12 +36,85 @@ namespace project1.Controllers
             {
                 _Db.Students.Add(obj);
                 _Db.SaveChanges();
+                TempData["success"] = "student Create successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
-     
 
 
+        }
+
+        //Edit
+        public IActionResult Edit(int? Id)
+        {
+            if(Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var studentFromDb= _Db.Students.Find(Id);
+
+            if (studentFromDb==null)
+            {
+                return NotFound();
+            }
+
+            
+            return View(studentFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Student obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _Db.Students.Update(obj);
+                _Db.SaveChanges();
+                TempData["success"] = "student edit successfully";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+
+
+        //Delete
+        public IActionResult Delete(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var studentFromDb = _Db.Students.Find(Id);
+
+            if (studentFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(studentFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? Id)
+        {
+
+       
+            var obj = _Db.Students.Find(Id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            
+                _Db.Students.Remove(obj);
+                _Db.SaveChanges();
+
+            TempData["success"] = "student Delete successfully";
+            return RedirectToAction("Index");
+            
         }
 
 
